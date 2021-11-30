@@ -11,6 +11,10 @@ const connection = require('./database/database');
 const categoriesController = require('./categories/CategoriesController');
 const articlesController = require('./articles/ArticlesController');
 
+// Import Models
+const Article = require('./articles/Article');
+const Category = require('./categories/Category');
+
 // Initializing view engine - EJS
 app.set('view engine', 'ejs');
 
