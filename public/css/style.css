@@ -20,3 +20,7 @@
    color: #fff;
    background-color: #40008f;
 }
+
+.display-group-btn {
+   display: inline;
+}
