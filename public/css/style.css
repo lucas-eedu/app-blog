@@ -2,6 +2,10 @@
    background-color: #5e00d2;
 }
 
+.mb-30 {
+   margin-bottom: 30px;
+}
+
 .vertical-center {
    align-items: center;
 }
