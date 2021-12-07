@@ -4,10 +4,10 @@
       <div class="container">
          <div class="row vertical-center">
             <div class="col-md-8">
-               <h1>Categorias</h1>
+               <h1>Artigos</h1>
             </div>
             <div class="col-md-4">
-               <a href="/admin/categories/new" class="btn btn-default float-right" title="Criar Categoria">Criar Categoria</a>
+               <a href="/admin/articles/new" class="btn btn-default float-right" title="Criar Categoria">Criar Artigo</a>
             </div>
          </div>
          <table class="table table-bordered">
@@ -16,19 +16,21 @@
                   <th>ID</th>
                   <th>Título</th>
                   <th>Slug</th>
+                  <th>Categoria</th>
                   <th>Ações</th>
                </tr>
             </thead>
             <tbody>
-               <% categories.forEach(category => { %>
+               <% articles.forEach(article => { %>
                   <tr>
-                     <th><%= category.id %></th>
-                     <th><%= category.title %></th>
-                     <th><%= category.slug %></th>
+                     <th><%= article.id %></th>
+                     <th><%= article.title %></th>
+                     <th><%= article.slug %></th>
+                     <th><%= article.category.title %></th>
                      <th>
-                        <a class="btn btn-warning" href="/admin/categories/<%= category.id %>/edit">Editar</a>
-                        <form method="post" action="/categories/delete" class="display-group-btn" onsubmit="confirmDelete(event, this)">
-                           <input type="hidden" name="id" value="<%= category.id %>"/>
+                        <a class="btn btn-warning" href="/admin/articles/<%= article.id %>/edit">Editar</a>
+                        <form method="post" action="/articles/delete" class="display-group-btn" onsubmit="confirmDelete(event, this)">
+                           <input type="hidden" name="id" value="<%= article.id %>"/>
                            <button type="submit" class="btn btn-danger">Excluir</button>
                         </form>
                      </th>

@@ -62,7 +62,7 @@ router.post('/categories/update', (req, res) => {
    });
 });
 
-router.post('/admin/categories/delete', (req, res) => {
+router.post('/categories/delete', (req, res) => {
    const id = req.body.id;
    if (id != undefined) {
       if(!isNaN(id)) {
