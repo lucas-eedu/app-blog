@@ -1,0 +1,43 @@
+<%- include('../../partials/header.ejs') %>
+   <%- include('../../partials/navbar.ejs') %>
+   <section class="primary-section">
+      <div class="container">
+         <div class="row vertical-center">
+            <div class="col-md-8">
+               <h1>Artigos</h1>
+            </div>
+            <div class="col-md-4">
+               <a href="/admin/articles/new" class="btn btn-default float-right" title="Criar Categoria">Criar Artigo</a>
+            </div>
+         </div>
+         <table class="table table-bordered">
+            <thead>
+               <tr>
+                  <th>ID</th>
+                  <th>Título</th>
+                  <th>Slug</th>
+                  <th>Categoria</th>
+                  <th>Ações</th>
+               </tr>
+            </thead>
+            <tbody>
+               <% articles.forEach(article => { %>
+                  <tr>
+                     <th><%= article.id %></th>
+                     <th><%= article.title %></th>
+                     <th><%= article.slug %></th>
+                     <th><%= article.categoryId %></th>
+                     <th>
+                        <a class="btn btn-warning" href="/admin/articles/<%= article.id %>/edit">Editar</a>
+                        <form method="post" action="/admin/articles/delete" class="display-group-btn" onsubmit="confirmDelete(event, this)">
+                           <input type="hidden" name="id" value="<%= article.id %>"/>
+                           <a class="btn btn-danger">Excluir</button>
+                        </form>
+                     </th>
+                  </tr>
+               <% }) %>
+            </tbody>
+         </table>
+      </div>
+   </section>
+<%- include('../../partials/footer.ejs') %>
