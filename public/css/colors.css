@@ -1,0 +1,24 @@
+/* ===================
+1) Background Patterns
+2) Buttons Patterns
+3) Patterns
+4) Patterns
+5) Patterns
+6) Patterns
+7) Patterns
+==================== */
+
+/* 1) Background Patterns  */
+.bg-default {
+   background-color: #5e00d2;
+}
+/* 2) Buttons Patterns */
+.btn-default {
+   color: #fff;
+   background-color: #5e00d2;
+}
+
+.btn-default:hover {
+   color: #fff;
+   background-color: #40008f;
+}

@@ -1,0 +1,44 @@
+/* ===================
+1) Media Screen 1200px
+2) Media Screen 1024px
+3) Media Screen 900px
+4) Media Screen 768px
+5) Media Screen 600px
+6) Media Screen 480px
+7) Media Screen 320px
+==================== */
+
+/* 1) Media Screen 1200px */
+@media screen and (max-width: 1200px) {
+   
+}
+
+/* 2) Media Screen 1024px */
+@media screen and (max-width: 1024px) {
+   
+}
+
+/* 3) Media Screen 900px */
+@media screen and (max-width: 900px) {
+
+}
+
+/* 4) Media Screen 768px */
+@media screen and (max-width: 768px) {
+   
+}
+
+/* 5) Media Screen 600px */
+@media screen and (max-width: 600px) {
+   
+}
+
+/* 6) Media Screen 480px */
+@media screen and (max-width: 480px) {
+   
+}
+
+/* 7) Media Screen 320px */
+@media screen and (max-width: 320px) {
+   
+}

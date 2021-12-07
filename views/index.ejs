@@ -1,6 +1,6 @@
 <%- include('partials/header.ejs') %>
    <%- include('partials/navbar-home.ejs') %>
-   <section class="primary-section">
+   <section class="mt-50 mb-50">
       <div class="container">
          <div class="jumbotron">
             <h1 class="display-4">Olá, seja bem-vindo ao meu blog!</h1>
@@ -10,7 +10,14 @@
             <p>Este blog além de ser um portfólio, tem como objetivo publicar soluções e problemáticas que presenciei durante a minha jornada como desenvolvedor.</p>
             <p>Espero que estes conteúdos de alguma forma eu possam ajudar você, e caso você queria me ajudar no desenvolvimento ou na produção/ajustes dos conteúdos é só me chamar! haha</p>
          </div>
+      </div>
+   </section>
+   <section class="mt-50 mb-50">
+      <div class="container">
          <div class="row">
+            <div class="col-md-12 text-center mb-50">
+               <h1>Posts Recentes</h1>
+            </div>
             <% articles.forEach(article => { %>
                <div class="col-md-4 col-lg-4">
                   <div class="card mb-30">
