@@ -27,9 +27,9 @@
                      <th><%= category.slug %></th>
                      <th>
                         <a class="btn btn-warning" href="/admin/categories/<%= category.id %>/edit">Editar</a>
-                        <form method="post" action="/admin/categories/delete" class="display-group-btn" onsubmit="confirmDelete(event, this)">
+                        <form method="post" action="/categories/delete" class="display-group-btn" onsubmit="confirmDelete(event, this)">
                            <input type="hidden" name="id" value="<%= category.id %>"/>
-                           <a class="btn btn-danger">Excluir</button>
+                           <button type="submit" class="btn btn-danger">Excluir</button>
                         </form>
                      </th>
                   </tr>
