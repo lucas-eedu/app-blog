@@ -42,8 +42,28 @@ app.use('/', articlesController);
 
 // Routes
 app.get('/', (req, res) => {
-   Article.findAll().then(articles => {
+   Article.findAll({
+      // Sorting articles from newest to oldest
+      order: [['id', 'DESC']]
+   }).then(articles => {
       res.render('index', {articles: articles});
+   });
+});
+
+app.get('/:slug', (req, res) => {
+   const slug = req.params.slug;
+   Article.findOne({ 
+      where: {
+         slug: slug
+      }
+   }).then(article => {
+      if(article !== undefined) {
+         res.render('article', {article: article});
+      } else {
+         res.redirect('/');
+      }
+   }).catch(err => {
+      res.redirect('/');
    });
 });
 
