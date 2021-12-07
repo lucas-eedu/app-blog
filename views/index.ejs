@@ -1,3 +1,36 @@
 <%- include('partials/header.ejs') %>
-   <h1>Testando as views</h1>
+   <%- include('partials/navbar-home.ejs') %>
+   <section class="primary-section">
+      <div class="container">
+         <div class="jumbotron">
+            <h1 class="display-4">Olá, seja bem-vindo ao meu blog!</h1>
+            <p class="lead">Me chamo Lucas Eduardo, tenho 21 anos e atuo com desenvolvimento web desde de 2017. </p>
+            <!-- <p class="lead">Sou experiente com as tecnologias: PHP, NodeJS, HTML, CSS, JavaScript e MySQL no desenvolvimento de sistemas e websites e nos Frameworks como: Codeiginiter, Boostrap,  Laravel e Express que utilizo no dia a dia nos projetos.</p> -->
+            <hr class="my-4">
+            <p>Este blog além de ser um portfólio, tem como objetivo publicar soluções e problemáticas que presenciei durante a minha jornada como desenvolvedor.</p>
+            <p>Espero que estes conteúdos de alguma forma eu possam ajudar você, e caso você queria me ajudar no desenvolvimento ou na produção/ajustes dos conteúdos é só me chamar! haha</p>
+         </div>
+         <div class="row">
+            <% articles.forEach(article => { %>
+               <div class="col-md-4 col-lg-4">
+                  <div class="card mb-30">
+                     <div class="card-header">
+                        <h2><%= article.title %></h2>
+                     </div>
+                     <div class="card-body">
+                        <% 
+                           var content = article.body;
+                           var summary = content.substr(0, 30);
+                        %>
+                        <%= summary %>...
+                     </div>
+                     <div class="card-footer">
+                        <a href="" class="btn btn-default">Ler artigo</a>
+                     </div>
+                  </div>
+               </div>
+            <% }) %>
+         </div>
+      </div>
+   </section>
 <%- include('partials/footer.ejs') %>
