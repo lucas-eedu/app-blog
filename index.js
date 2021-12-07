@@ -77,6 +77,27 @@ app.get('/:slug', (req, res) => {
    });
 });
 
+app.get('/category/:slug', (req, res) => {
+   const slug = req.params.slug;
+   
+   Category.findOne({
+      where: {
+         slug: slug
+      },
+      include: [{model: Article}]
+   }).then(category => {
+      if(category !== undefined) {
+         Category.findAll().then(categories => {
+            res.render('category', {articles: category.articles, categories: categories, category});
+         });
+      } else {
+         res.redirect('/');
+      }
+   }).catch(err => {
+      res.redirect('/');
+   });
+});
+
 // Building Server
 app.listen(8000, () => {
    console.log('O servidor está rodando!');
