@@ -12,6 +12,8 @@ const slugify = require('slugify');
 // Articles Routes
 router.get('/admin/articles', (req, res) => {
    Article.findAll({
+      // Sorting articles from newest to oldest
+      order: [['id', 'DESC']],
       // Including Category-type data (Making a Join with Sequelize)
       include: [{model: Category}]
    }).then(articles => {

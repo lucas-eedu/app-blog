@@ -15,7 +15,7 @@
                <tr>
                   <th>ID</th>
                   <th>Título</th>
-                  <th>Slug</th>
+                  <!-- <th>Slug</th> -->
                   <th>Categoria</th>
                   <th>Ações</th>
                </tr>
@@ -24,8 +24,8 @@
                <% articles.forEach(article => { %>
                   <tr>
                      <th><%= article.id %></th>
-                     <th><%= article.title %></th>
-                     <th><%= article.slug %></th>
+                     <th><a href="/<%= article.slug %>"><%= article.title %></a></th>
+                     <!-- <th><%= article.slug %></th> -->
                      <th><%= article.category.title %></th>
                      <th>
                         <a class="btn btn-warning" href="/admin/articles/<%= article.id %>/edit">Editar</a>

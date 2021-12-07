@@ -20,12 +20,12 @@
                      <div class="card-body">
                         <% 
                            var content = article.body;
-                           var summary = content.substr(0, 30);
+                           var summary = content.substr(0, 100);
                         %>
-                        <%= summary %>...
+                        <%- summary %>...
                      </div>
                      <div class="card-footer">
-                        <a href="" class="btn btn-default">Ler artigo</a>
+                        <a href="/<%= article.slug %>" class="btn btn-default">Ler artigo</a>
                      </div>
                   </div>
                </div>
