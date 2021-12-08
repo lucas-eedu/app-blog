@@ -2,7 +2,7 @@
 1) Background Patterns
 2) Buttons Patterns
 3) Navbar Patterns
-4) Patterns
+4) Sidebar Patterns
 5) Patterns
 6) Patterns
 7) Patterns
@@ -34,4 +34,14 @@
 
 .navbar-dark .navbar-nav .nav-link:hover {
    color: #390a75;
+}
+
+/* 4) Sidebar Patterns */
+.social-media > a {
+   background-color: #3d15ae;
+   color: #fff;
+}
+
+.social-media > a:hover {
+   background-color: #530fab;
 }
