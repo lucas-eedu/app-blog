@@ -1,7 +1,7 @@
 /* ===================
 1) Background Patterns
 2) Buttons Patterns
-3) Patterns
+3) Navbar Patterns
 4) Patterns
 5) Patterns
 6) Patterns
@@ -9,16 +9,29 @@
 ==================== */
 
 /* 1) Background Patterns  */
-.bg-default {
-   background-color: #5e00d2;
+.bg-body {
+   background-color: #eeeeee;
+}
+
+.bg-navbar {
+   background-image: -webkit-linear-gradient(left,#3714ac,#9f16d1);
 }
 /* 2) Buttons Patterns */
 .btn-default {
    color: #fff;
-   background-color: #5e00d2;
+   background-color: #6b14da;
 }
 
 .btn-default:hover {
    color: #fff;
-   background-color: #40008f;
+   background-color: #530fab;
+}
+
+/* 3) Navbar Patterns  */
+.navbar-dark .navbar-nav .nav-link {
+   color: #fff;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+   color: #390a75;
 }
