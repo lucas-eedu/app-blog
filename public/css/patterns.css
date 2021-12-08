@@ -1,13 +1,97 @@
 /* ===================
-1) Margin Top Patterns 
-2) Margin Bottom Patterns
-3) Margin Left Patterns 
-4) Margin Right Patterns
-5) Alignments Patterns
-6) Displaying Patterns
+1) All Padding Patterns
+2) All Margin Patterns
+3) Margin Top Patterns 
+4) Margin Bottom Patterns
+5) Margin Left Patterns 
+6) Margin Right Patterns
+7) Alignments Patterns
+8) Displaying Patterns
 ==================== */
 
-/* 1) Margin Top Patterns  */
+/* 1) All Padding Patterns  */
+.pd-10 {
+   padding: 10px;
+}
+
+.pd-20 {
+   padding: 20px;
+}
+
+.pd-30 {
+   padding: 30px;
+}
+
+.pd-40 {
+   padding: 40px;
+}
+
+.pd-50 {
+   padding: 50px;
+}
+
+.pd-60 {
+   padding: 60px;
+}
+
+.pd-70 {
+   padding: 70px;
+}
+
+.pd-80 {
+   padding: 80px;
+}
+
+.pd-90 {
+   padding: 90px;
+}
+
+.pd-100 {
+   padding: 100px;
+}
+
+/* 2) All Margin Patterns  */
+.mg-10 {
+   margin: 10px;
+}
+
+.mg-20 {
+   margin: 20px;
+}
+
+.mg-30 {
+   margin: 30px;
+}
+
+.mg-40 {
+   margin: 40px;
+}
+
+.mg-50 {
+   margin: 50px;
+}
+
+.mg-60 {
+   margin: 60px;
+}
+
+.mg-70 {
+   margin: 70px;
+}
+
+.mg-80 {
+   margin: 80px;
+}
+
+.mg-90 {
+   margin: 90px;
+}
+
+.mg-100 {
+   margin: 100px;
+}
+
+/* 3) Margin Top Patterns  */
 .mt-10 {
    margin-top: 10px;
 }
@@ -48,7 +132,7 @@
    margin-top: 100px;
 }
 
-/* 2) Margin Bottom Patterns */
+/* 4) Margin Bottom Patterns */
 .mb-10 {
    margin-bottom: 10px;
 }
@@ -89,7 +173,7 @@
    margin-bottom: 100px;
 }
 
-/* 3) Margin Left Patterns */
+/* 5) Margin Left Patterns */
 .ml-10 {
    margin-left: 10px;
 }
@@ -130,7 +214,7 @@
    margin-left: 100px;
 }
 
-/* 4) Margin Right Patterns */
+/* 6) Margin Right Patterns */
 .mr-10 {
    margin-right: 10px;
 }
@@ -171,12 +255,12 @@
    margin-right: 100px;
 }
 
-/* 5) Alignments Patterns */
+/* 7) Alignments Patterns */
 .vertical-center {
    align-items: center;
 }
 
-/* 6) Displaying Patterns  */
+/* 8) Displaying Patterns  */
 .display-group-btn {
    display: inline;
 }
