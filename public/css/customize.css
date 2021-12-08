@@ -1,3 +1,12 @@
+/* Default Color */
+/* .default-color {
+   color: #411ab0;
+   color: #9e16d0;
+   color: #d22bcc;
+   color: #171d5a;
+   color: #000;
+} */
+
 /* Navbar */
 .navbar {
    padding: 0.8em 1rem;
@@ -16,6 +25,23 @@
    background-clip: border-box;
    border: 1px solid rgba(0,0,0,.125);
    border-radius: 0.25rem;
+}
+
+.sidebar-title {
+   font-size: 1.5em;
+}
+
+.social-media {
+   display: grid;
+   grid-template-columns: 35px 35px 35px 35px;
+   grid-gap: 0px 5px;
+}
+
+.social-media > a {
+   border-radius: 5em;
+   text-align: center;
+   font-size: 17px;
+   padding: 5px;
 }
 
 /* Images */
