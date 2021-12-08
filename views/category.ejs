@@ -2,30 +2,32 @@
    <%- include('partials/navbar-home.ejs') %>
    <section class="mt-50 mb-50">
       <div class="container">
+         <div class="text-center mb-50">
+            <h1>Categoria: <%= category.title %></h1>
+         </div>
          <div class="row">
-            <div class="col-md-12 text-center mb-50">
-               <h1>Categoria: <%= category.title %></h1>
-            </div>
-            <% articles.forEach(article => { %>
-               <div class="col-md-4 col-lg-4">
+            <div class="col-md-8">
+               <% articles.forEach(article => { %>
                   <div class="card mb-30">
-                     <div class="card-header">
-                        <h2><%= article.title %></h2>
-                     </div>
+                     <img src="https://tech-cookbook.com/wp-content/uploads/2021/11/wp-macos12-mysql-workbench-750x410.png" class="card-img-top" alt="...">
                      <div class="card-body">
+                        <h5 class="card-title"><%= article.title %></h5>
                         <% 
                            var content = article.body;
                            var summary = content.replace(/(<([^>]+)>)/ig,'');
-                           var summary = summary.substr(0, 100);
+                           var summary = summary.substr(0, 800);
                         %>
-                        <%- summary %>(...)
-                     </div>
-                     <div class="card-footer">
+                        <p class="card-text"><%- summary %>(...)</p>
                         <a href="/<%= article.slug %>" class="btn btn-default">Ler artigo</a>
                      </div>
+                     <div class="card-footer">
+                        <small class="text-muted"><%= article.createdAt %></small>
+                     </div>
                   </div>
-               </div>
-            <% }) %>
+               <% }) %>
+            </div>
+            <!-- Sidebar -->
+            <%- include('partials/sidebar.ejs') %>
          </div>
       </div>
    </section>

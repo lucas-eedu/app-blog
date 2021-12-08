@@ -2,42 +2,29 @@
    <%- include('partials/navbar-home.ejs') %>
    <section class="mt-50 mb-50">
       <div class="container">
-         <div class="jumbotron">
-            <h1 class="display-4">Olá, seja bem-vindo ao meu blog!</h1>
-            <p class="lead">Me chamo Lucas Eduardo, tenho 21 anos e atuo com desenvolvimento web desde de 2017. </p>
-            <!-- <p class="lead">Sou experiente com as tecnologias: PHP, NodeJS, HTML, CSS, JavaScript e MySQL no desenvolvimento de sistemas e websites e nos Frameworks como: Codeiginiter, Boostrap,  Laravel e Express que utilizo no dia a dia nos projetos.</p> -->
-            <hr class="my-4">
-            <p>Este blog além de ser um portfólio, tem como objetivo publicar soluções e problemáticas que presenciei durante a minha jornada como desenvolvedor.</p>
-            <p>Espero que estes conteúdos de alguma forma eu possam ajudar você, e caso você queria me ajudar no desenvolvimento ou na produção/ajustes dos conteúdos é só me chamar! haha</p>
-         </div>
-      </div>
-   </section>
-   <section class="mt-50 mb-50">
-      <div class="container">
          <div class="row">
-            <div class="col-md-12 text-center mb-50">
-               <h1>Posts Recentes</h1>
-            </div>
-            <% articles.forEach(article => { %>
-               <div class="col-md-4 col-lg-4">
+            <div class="col-md-8">
+               <% articles.forEach(article => { %>
                   <div class="card mb-30">
-                     <div class="card-header">
-                        <h2><%= article.title %></h2>
-                     </div>
+                     <img src="https://tech-cookbook.com/wp-content/uploads/2021/11/wp-macos12-mysql-workbench-750x410.png" class="card-img-top" alt="...">
                      <div class="card-body">
+                        <h5 class="card-title"><%= article.title %></h5>
                         <% 
                            var content = article.body;
                            var summary = content.replace(/(<([^>]+)>)/ig,'');
-                           var summary = summary.substr(0, 100);
+                           var summary = summary.substr(0, 800);
                         %>
-                        <%- summary %>(...)
-                     </div>
-                     <div class="card-footer">
+                        <p class="card-text"><%- summary %>(...)</p>
                         <a href="/<%= article.slug %>" class="btn btn-default">Ler artigo</a>
                      </div>
+                     <div class="card-footer">
+                        <small class="text-muted"><%= article.createdAt %></small>
+                     </div>
                   </div>
-               </div>
-            <% }) %>
+               <% }) %>
+            </div>
+            <!-- Sidebar -->
+            <%- include('partials/sidebar.ejs') %>
          </div>
       </div>
    </section>
