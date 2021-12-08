@@ -1,12 +1,17 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-default">
-   <a href="/" class="navbar-brand">
-      Blog Lucas
-   </a>
-   <ul class="navbar-nav">
-      <% categories.forEach(category => { %>
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-navbar">
+   <div class="container">
+      <a href="/" class="navbar-brand">
+         LucasDev - Blog
+      </a>
+      <ul class="navbar-nav">
+         <% categories.forEach(category => { %>
+            <li class="nav-item">
+               <a class="nav-link" href="/category/<%= category.slug %>"><%= category.title %></a>
+            </li>
+         <% }) %>
          <li class="nav-item">
-            <a class="nav-link" href="/category/<%= category.slug %>"><%= category.title %></a>
+            <a class="nav-link" href="/about">Sobre este Blog</a>
          </li>
-      <% }) %>
-   </ul>
+      </ul>
+   </div>
 </nav>
