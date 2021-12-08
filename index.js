@@ -55,6 +55,14 @@ app.get('/', (req, res) => {
    });
 });
 
+app.get('/about', (req, res) => {
+   Category.findAll().then(categories => {
+      res.render('about', {
+         categories: categories
+      });
+   });
+});
+
 app.get('/:slug', (req, res) => {
    const slug = req.params.slug;
    Article.findOne({ 
