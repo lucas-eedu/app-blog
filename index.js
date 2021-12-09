@@ -8,12 +8,12 @@ const bodyParser = require('body-parser');
 const connection = require('./database/database');
 
 // Import Controllers
-const categoriesController = require('./categories/CategoriesController');
-const articlesController = require('./articles/ArticlesController');
+const categoriesController = require('./app/domains/categories/Controllers/CategoriesController');
+const articlesController = require('./app/domains/articles/Controllers/ArticlesController');
 
 // Import Models
-const Article = require('./articles/Article');
-const Category = require('./categories/Category');
+const Article = require('./app/domains/articles/Models/Article');
+const Category = require('./app/domains/categories/Models/Category');
 
 // Initializing view engine - EJS
 app.set('view engine', 'ejs');

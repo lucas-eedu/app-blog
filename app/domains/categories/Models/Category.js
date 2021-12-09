@@ -1,7 +1,7 @@
 // Import sequelize
 const sequelize = require('sequelize');
 // Import connection
-const connection = require('../database/database');
+const connection = require('../../../../database/database');
 
 // Create category table
 const Category = connection.define('categories', {
