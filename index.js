@@ -40,29 +40,47 @@ connection
 app.use('/', categoriesController);
 app.use('/', articlesController);
 
-// Routes
+// Home Route
 app.get('/', (req, res) => {
    Article.findAll({
       // Sorting articles from newest to oldest
       order: [['id', 'DESC']]
    }).then(articles => {
       Category.findAll().then(categories => {
-         res.render('index', {
-            articles: articles,
-            categories: categories
+         Article.findAll({
+            // Sorting articles from newest to oldest
+            order: [['id', 'DESC']],
+            // Returning the last 3 posts
+            limit: 3
+         }).then(recentArticles => {
+            res.render('index', {
+               articles: articles,
+               categories: categories,
+               recentArticles: recentArticles
+            });
          });
       });
    });
 });
 
+// About Route
 app.get('/about', (req, res) => {
    Category.findAll().then(categories => {
-      res.render('about', {
-         categories: categories
-      });
+      Article.findAll({
+         // Sorting articles from newest to oldest
+         order: [['id', 'DESC']],
+         // Returning the last 3 posts
+         limit: 3
+      }).then(recentArticles => {
+         res.render('about', {
+            categories: categories,
+            recentArticles: recentArticles
+         });
+      })
    });
 });
 
+// Single Post Route
 app.get('/:slug', (req, res) => {
    const slug = req.params.slug;
    Article.findOne({ 
@@ -72,9 +90,17 @@ app.get('/:slug', (req, res) => {
    }).then(article => {
       if(article !== undefined) {
          Category.findAll().then(categories => {
-            res.render('article', {
-               article: article,
-               categories: categories
+            Article.findAll({
+               // Sorting articles from newest to oldest
+            order: [['id', 'DESC']],
+            // Returning the last 3 posts
+            limit: 3
+            }).then(recentArticles => {
+               res.render('article', {
+                  article: article,
+                  categories: categories,
+                  recentArticles: recentArticles
+               });
             });
          });
       } else {
@@ -85,9 +111,9 @@ app.get('/:slug', (req, res) => {
    });
 });
 
+// Category Posts Route
 app.get('/category/:slug', (req, res) => {
    const slug = req.params.slug;
-   
    Category.findOne({
       where: {
          slug: slug
@@ -96,7 +122,19 @@ app.get('/category/:slug', (req, res) => {
    }).then(category => {
       if(category !== undefined) {
          Category.findAll().then(categories => {
-            res.render('category', {articles: category.articles, categories: categories, category});
+            Article.findAll({
+               // Sorting articles from newest to oldest
+               order: [['id', 'DESC']],
+               // Returning the last 3 posts
+               limit: 3
+            }).then(recentArticles => {
+               res.render('category', {
+                  articles: category.articles, 
+                  categories: categories, 
+                  category: category,
+                  recentArticles: recentArticles
+               });
+            });
          });
       } else {
          res.redirect('/');
