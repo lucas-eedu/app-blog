@@ -1,12 +1,26 @@
 /* ===================
+color: #6b14da;
+color: #411ab0;
+color: #9e16d0;
+color: #d22bcc;
+color: #171d5a;
+
 1) Background Patterns
 2) Buttons Patterns
 3) Navbar Patterns
 4) Sidebar Patterns
-5) Patterns
+5) Card Patterns
 6) Patterns
 7) Patterns
 ==================== */
+
+a {
+   color: #411ab0;
+}
+
+a:hover {
+   color: #6b14da;
+}
 
 /* 1) Background Patterns  */
 .bg-body {
@@ -16,6 +30,7 @@
 .bg-navbar {
    background-image: -webkit-linear-gradient(left,#3714ac,#9f16d1);
 }
+
 /* 2) Buttons Patterns */
 .btn-default {
    color: #fff;
@@ -32,11 +47,28 @@
    color: #fff;
 }
 
+.navbar-dark .navbar-toggler {
+   border-color: #ffffff00;
+}
+
+.navbar-dark .navbar-toggler:focus {
+   outline: none;
+}
+
 .navbar-dark .navbar-nav .nav-link:hover {
    color: #390a75;
 }
 
 /* 4) Sidebar Patterns */
+.sidebar-area {
+   background-color: #fff;
+   border: 1px solid rgba(0,0,0,.125);
+}
+
+.sidebar-title::after {
+   background: #3d15ae;
+}
+
 .social-media > a {
    background-color: #3d15ae;
    color: #fff;
@@ -44,4 +76,9 @@
 
 .social-media > a:hover {
    background-color: #530fab;
+}
+
+/* Card Patterns */
+.card-title {
+   color: #000;
 }

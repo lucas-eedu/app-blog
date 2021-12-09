@@ -1,11 +1,16 @@
-/* Default Color */
-/* .default-color {
-   color: #411ab0;
-   color: #9e16d0;
-   color: #d22bcc;
-   color: #171d5a;
-   color: #000;
-} */
+/* Theme Config */
+* {
+   font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+   font-weight: 500;
+}
+
+p, a, ul, li, button, input, select, textarea{
+   font-weight: 400;
+   line-height: 1.6;
+}
 
 /* Navbar */
 .navbar {
@@ -13,6 +18,12 @@
 }
 
 /* Sidebar */
+input[type="search"] {
+   background-color: #ebeeef;
+   border-radius: 10em;
+   border-color: #ebeeef;
+}
+
 .sidebar-area {
    position: relative;
    display: -ms-flexbox;
@@ -21,14 +32,24 @@
    flex-direction: column;
    min-width: 0;
    word-wrap: break-word;
-   background-color: #fff;
    background-clip: border-box;
-   border: 1px solid rgba(0,0,0,.125);
    border-radius: 0.25rem;
+}
+
+.widget {
+   margin-bottom: 20px;
 }
 
 .sidebar-title {
    font-size: 1.5em;
+}
+
+.sidebar-title::after {
+   content: '';
+   display: block;
+   width: 70px;
+   height: 2px;
+   margin: 5px 0;
 }
 
 .social-media {
@@ -44,8 +65,36 @@
    padding: 5px;
 }
 
-/* Images */
+.post-item {
+   display: block;
+   float: left;
+   clear: both;
+   margin-bottom: 10px;
+   margin-top: 10px;
+}
+
+.post-image img {
+   width: 60px;
+   height: 60px;
+   float: left;
+   display: block;
+   border-radius: 4px;
+   background-position: center center;
+   background-repeat: no-repeat;
+   overflow: hidden;
+   margin-top: 7px;
+}
+
+.post-content {
+   margin-left: 80px;
+}
+
+/* All Images */
 img {
-   width: 100%;
    max-width: 100%;
+}
+
+/* Buttons */
+.btn-default {
+   border-radius: 10em;
 }
