@@ -43,6 +43,46 @@ router.post('/articles/save', (req, res) => {
    });
 });
 
+router.get('/admin/articles/:id/edit', (req, res) => {
+   const id = req.params.id;
+
+   if(isNaN(id)) {
+      res.redirect('/admin/articles');
+   }
+
+   Article.findByPk(id).then(article => {
+      if(article != undefined) {
+         Category.findAll().then(categories => {
+            res.render('admin/articles/edit', {
+               article: article, 
+               categories: categories
+            });
+         });
+      } else {
+         res.redirect('/admin/articles');
+      }
+   }).catch(err => {
+      res.redirect('/admin/articles');
+   });
+});
+
+router.post('/admin/articles/update', (req, res) => {
+   const id = req.body.id;
+   const title = req.body.title;
+   const body = req.body.body;
+   const category = req.body.category;
+
+   Article.update({title: title, body: body, slug: slugify(title), categoryId: category}, {
+      where: {
+         id: id
+      }
+   }).then(() => {
+      res.redirect('/admin/articles');
+   }).catch(err => {
+      res.redirect('/admin/articles');
+   });
+});
+
 router.post('/articles/delete', (req, res) => {
    const id = req.body.id;
    if (id != undefined) {
