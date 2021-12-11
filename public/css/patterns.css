@@ -7,6 +7,7 @@
 6) Margin Right Patterns
 7) Alignments Patterns
 8) Displaying Patterns
+9) Floating Patterns
 ==================== */
 
 /* 1) All Padding Patterns  */
@@ -263,4 +264,13 @@
 /* 8) Displaying Patterns  */
 .display-group-btn {
    display: inline;
+}
+
+/* 9) Floating Patterns */
+.float-left {
+   float: left;
+}
+
+.float-right {
+   float: right;
 }

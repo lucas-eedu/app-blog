@@ -4,7 +4,7 @@
       <div class="container">
          <div class="row">
             <div class="col-md-8">
-               <% articles.forEach(article => { %>
+               <% result.articles.rows.forEach(article => { %>
                   <div class="card mb-30">
                      <img src="https://tech-cookbook.com/wp-content/uploads/2021/11/wp-macos12-mysql-workbench-750x410.png" class="card-img-top" alt="...">
                      <div class="card-body">
@@ -31,7 +31,16 @@
          <!-- Pagination -->
          <div class="row">
             <div class="col-md-8">
-               <a class="float-right" href="/page/2">Próxima Página ></a>
+               <!-- Prev -->
+               <% if(result.page > 2) { %>
+                  <a class="float-left" href="/page/<%= result.page - 1 %>">< Página Anterior</a>
+               <% } else if(result.page == 2) { %>
+                  <a class="float-left" href="/">< Página Anterior</a>
+               <% } %>
+               <!-- Next -->
+               <% if(result.next) { %>
+                  <a class="float-right" href="/page/<%= result.page + 1 %>">Próxima Página ></a>
+               <% } %>
             </div>
          </div>
       </div>

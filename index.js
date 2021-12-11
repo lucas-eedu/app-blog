@@ -44,7 +44,9 @@ app.use('/', articlesController);
 app.get('/', (req, res) => {
    Article.findAll({
       // Sorting articles from newest to oldest
-      order: [['id', 'DESC']]
+      order: [['id', 'DESC']],
+      // Returning the last 4 posts
+      limit: 4
    }).then(articles => {
       Category.findAll().then(categories => {
          Article.findAll({
@@ -55,6 +57,53 @@ app.get('/', (req, res) => {
          }).then(recentArticles => {
             res.render('index', {
                articles: articles,
+               categories: categories,
+               recentArticles: recentArticles
+            });
+         });
+      });
+   });
+});
+
+// Pagination Route
+app.get('/page/:num', (req, res) => {
+   const page = req.params.num;
+   let offset = 0;
+
+   if(isNaN(page) || page == 1) {
+      offset = 0;
+   } else {
+      offset = (parseInt(page) - 1) * 4;
+   }
+
+   Article.findAndCountAll({
+      order: [['id', 'DESC']],
+      limit: 4,
+      offset: offset
+   }).then(articles => {
+      let next;
+
+      if(offset + 4 >= articles.count) {
+         next = false;
+      } else {
+         next = true;
+      }
+
+      let result = {
+         page: parseInt(page),
+         next: next,
+         articles: articles
+      }
+
+      Category.findAll().then(categories => {
+         Article.findAll({
+            // Sorting articles from newest to oldest
+            order: [['id', 'DESC']],
+            // Returning the last 3 posts
+            limit: 3
+         }).then(recentArticles => {
+            res.render('pagination', {
+               result: result,
                categories: categories,
                recentArticles: recentArticles
             });
@@ -76,7 +125,7 @@ app.get('/about', (req, res) => {
             categories: categories,
             recentArticles: recentArticles
          });
-      })
+      });
    });
 });
 
