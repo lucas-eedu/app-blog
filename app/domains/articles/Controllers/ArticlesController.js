@@ -34,7 +34,7 @@ router.post('/articles/save', (req, res) => {
 
    Article.create({
       title: title,
-      slug: slugify(title),
+      slug: slugify(title).toLowerCase(),
       body: body, 
       category: category,
       categoryId: category
@@ -72,7 +72,7 @@ router.post('/admin/articles/update', (req, res) => {
    const body = req.body.body;
    const category = req.body.category;
 
-   Article.update({title: title, body: body, slug: slugify(title), categoryId: category}, {
+   Article.update({title: title, body: body, slug: slugify(title).toLowerCase(), categoryId: category}, {
       where: {
          id: id
       }

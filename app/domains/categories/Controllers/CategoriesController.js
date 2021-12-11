@@ -24,7 +24,7 @@ router.post('/categories/save', (req, res) => {
    if (title != undefined) {    
       Category.create({
          title: title,
-         slug: slugify(title)
+         slug: slugify(title).toLowerCase()
       }).then(() =>{
          res.redirect('/admin/categories/');
       });
@@ -53,7 +53,7 @@ router.post('/categories/update', (req, res) => {
    const id = req.body.id;
    const title = req.body.title;
 
-   Category.update({title: title, slug: slugify(title)}, {
+   Category.update({title: title, slug: slugify(title).toLowerCase()}, {
       where: {
          id: id
       }
