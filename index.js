@@ -10,10 +10,12 @@ const connection = require('./database/database');
 // Import Controllers
 const categoriesController = require('./app/Domains/categories/Controllers/CategoriesController');
 const articlesController = require('./app/Domains/articles/Controllers/ArticlesController');
+const usersController = require('./app/Domains/Users/Controllers/UsersController');
 
 // Import Models
 const Article = require('./app/Domains/articles/Models/Article');
 const Category = require('./app/Domains/categories/Models/Category');
+const User = require('./app/Domains/users/Models/User');
 
 // Initializing view engine - EJS
 app.set('view engine', 'ejs');
@@ -39,6 +41,7 @@ connection
 // Note that before calling routes I define a prefix (My route access prefix)
 app.use('/', categoriesController);
 app.use('/', articlesController);
+app.use('/', usersController);
 
 // Home Route
 app.get('/', (req, res) => {
