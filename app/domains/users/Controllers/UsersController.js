@@ -71,24 +71,22 @@ router.post('/admin/users/update', (req, res) => {
    // Checking if the email already exists in our database.
    User.findOne({where: {email: email}}).then((user) => {
       // res.json({id, name, password, user});
-      if (email == user.email) {
-         // Generating a dynamic configuration for bcrypt to use in the hash
-         const salt = bcrypt.genSaltSync(10);
-         // Creating the password hash based on the salt setting created in the previous line
-         const hash = bcrypt.hashSync(password, salt);
-         
-         User.update({name: name, email: email, password: hash}, {
-            where: {
-               id: id
-            }
-         }).then(() =>{
-            res.redirect('/admin/users');
-         }).catch((err) => {
-            res.redirect('/');
-         });
-      } else {
+      
+      // Generating a dynamic configuration for bcrypt to use in the hash
+      const salt = bcrypt.genSaltSync(10);
+      // Creating the password hash based on the salt setting created in the previous line
+      const hash = bcrypt.hashSync(password, salt);
+      
+      User.update({name: name, email: email, password: hash}, {
+         where: {
+            id: id
+         }
+      }).then(() =>{
+         res.redirect('/admin/users');
+      }).catch((err) => {
          res.redirect('/');
-      }
+      });
+      
    });
 });
 
