@@ -8,9 +8,11 @@ const Category = require('../../categories/Models/Category');
 const Article = require('../Models/Article');
 // Import slugify
 const slugify = require('slugify');
+// Import Authenticate Middleware
+const authenticateMiddleware = require('../../../Middleware/Authenticate');
 
 // Articles Routes
-router.get('/admin/articles', (req, res) => {
+router.get('/admin/articles', authenticateMiddleware, (req, res) => {
    Article.findAll({
       // Sorting articles from newest to oldest
       order: [['id', 'DESC']],
@@ -21,13 +23,13 @@ router.get('/admin/articles', (req, res) => {
    });
 });
 
-router.get('/admin/articles/new', (req, res) => {
+router.get('/admin/articles/new', authenticateMiddleware, (req, res) => {
    Category.findAll().then(categories => {
       res.render('admin/articles/new', {categories: categories});
    });
 });
 
-router.post('/articles/save', (req, res) => {
+router.post('/articles/save', authenticateMiddleware, (req, res) => {
    const title = req.body.title;
    const body = req.body.body;
    const category = req.body.category;
@@ -43,7 +45,7 @@ router.post('/articles/save', (req, res) => {
    });
 });
 
-router.get('/admin/articles/:id/edit', (req, res) => {
+router.get('/admin/articles/:id/edit', authenticateMiddleware, (req, res) => {
    const id = req.params.id;
 
    if(isNaN(id)) {
@@ -66,7 +68,7 @@ router.get('/admin/articles/:id/edit', (req, res) => {
    });
 });
 
-router.post('/admin/articles/update', (req, res) => {
+router.post('/admin/articles/update', authenticateMiddleware, (req, res) => {
    const id = req.body.id;
    const title = req.body.title;
    const body = req.body.body;
@@ -83,7 +85,7 @@ router.post('/admin/articles/update', (req, res) => {
    });
 });
 
-router.post('/articles/delete', (req, res) => {
+router.post('/articles/delete', authenticateMiddleware, (req, res) => {
    const id = req.body.id;
    if (id != undefined) {
       if(!isNaN(id)) {
