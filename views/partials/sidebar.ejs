@@ -1,8 +1,8 @@
 <div class="col-md-4">
    <div class="sidebar-area pd-30">
-      <div class="widget">
+      <!-- <div class="widget">
          <input type="search" class="form-control" placeholder="Pesquise aqui"/>
-      </div>
+      </div> -->
       <div class="widget">
          <h3 class="sidebar-title">Sobre Mim</h3>
          <p>Me chamo Lucas Eduardo, tenho 21 anos e atuo com desenvolvimento web desde de 2017.</p>
@@ -27,7 +27,7 @@
             <% recentArticles.forEach(recentArticle => { %>
                <div class="post-item">
                   <div class="post-image">
-                     <a href="/">
+                     <a href="/<%= recentArticle.slug %>">
                         <img width="60" height="60" src="https://tech-cookbook.com/wp-content/uploads/2021/11/wp-macos12-mysql-workbench-750x410.png" alt="Título do Post">
                      </a>
                   </div>
@@ -38,7 +38,7 @@
             <% }) %>
          </div>
       </div>
-      <div class="widget">
+      <!-- <div class="widget">
          <h3 class="sidebar-title">Newsletter</h3>
          <p>Cadastre-se gratuitamente e seja o primeiro a ser notificado sobre atualizações.</p>
          <form action="">
@@ -47,6 +47,6 @@
             </div>
             <button type="submit" class="btn btn-default">Inscreva-se</button>
          </form>
-      </div>
+      </div> -->
    </div>
 </div>
