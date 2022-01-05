@@ -4,6 +4,8 @@ const express = require('express');
 const app = express();
 // Import bodyParser
 const bodyParser = require('body-parser');
+// Import express session
+const session = require('express-session');
 // Import connection with mysql
 const connection = require('./database/database');
 
@@ -19,6 +21,14 @@ const User = require('./app/Domains/users/Models/User');
 
 // Initializing view engine - EJS
 app.set('view engine', 'ejs');
+
+// Initializing express session
+app.use(session({
+   // The secret is used to compute a hash against the session ID
+   secret: 'RW@RY$QeDdDe',
+   // Similar to session expiration, you can also expire the cookie that was sent to the browser.
+   cookie: {maxAge: 28800000}
+}));
 
 // Initializing static files on public page
 app.use(express.static('public'));
