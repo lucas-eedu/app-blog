@@ -1,10 +1,13 @@
 // Import express
 const sequelize = require('sequelize');
+// Import dotenv
+require('dotenv').config();
+
 // Connecting to the database with sequelize
-const connection = new sequelize('projects_app-blog', 'root', '12345678', {
-   host: 'localhost',
-   dialect: 'mysql',
-   timezone: '-03:00'
+const connection = new sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
+   host: process.env.DB_HOST,
+   dialect: process.env.DB_DIALECT,
+   timezone: process.env.DB_TIMEZONE
 });
 
 module.exports = connection;
