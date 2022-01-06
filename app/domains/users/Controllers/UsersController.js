@@ -112,7 +112,11 @@ router.post('/admin/users/delete', authenticateMiddleware, (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-   res.render('admin/users/login');
+   if(req.session.user != undefined) {
+      res.redirect('/admin/articles');
+   } else {
+      res.render('admin/users/login');
+   }
 });
 
 router.post('/authenticate', (req, res) => {
@@ -137,6 +141,11 @@ router.post('/authenticate', (req, res) => {
          res.redirect('/login');
       }
    });
+});
+
+router.get('/logout', (req, res) => {
+   req.session.user = undefined;
+   res.redirect('/');
 });
 
 module.exports = router;
