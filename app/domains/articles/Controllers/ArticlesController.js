@@ -3,13 +3,13 @@ const express = require('express');
 // Express feature that allows you to create routes without the need to use the "app" variable
 const router = express.Router();
 // Import category model
-const Category = require('../../categories/Models/Category');
+const Category = require('../../categories/models/Category');
 // Import article model
-const Article = require('../Models/Article');
+const Article = require('../models/Article');
 // Import slugify
 const slugify = require('slugify');
 // Import Authenticate Middleware
-const authenticateMiddleware = require('../../../Middleware/Authenticate');
+const authenticateMiddleware = require('../../../middleware/Authenticate');
 
 // Articles Routes
 router.get('/admin/articles', authenticateMiddleware, (req, res) => {

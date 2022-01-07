@@ -3,7 +3,7 @@ const sequelize = require('sequelize');
 // Import connection
 const connection = require('../../../../database/database');
 // Import category model
-const Category = require('../../categories/Models/Category');
+const Category = require('../../categories/models/Category');
 
 // Create article table
 const Article = connection.define('articles', {

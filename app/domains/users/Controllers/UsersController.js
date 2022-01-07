@@ -3,11 +3,11 @@ const express = require('express');
 // Express feature that allows you to create routes without the need to use the "app" variable
 const router = express.Router();
 // Import user model
-const User = require('../Models/User');
+const User = require('../models/User');
 // Import bcryptjs
 const bcrypt = require('bcryptjs');
 // Import Authenticate Middleware
-const authenticateMiddleware = require('../../../Middleware/Authenticate');
+const authenticateMiddleware = require('../../../middleware/Authenticate');
 
 // User Routes
 router.get('/admin/users', authenticateMiddleware, (req, res) => {

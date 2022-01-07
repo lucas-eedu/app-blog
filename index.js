@@ -10,14 +10,14 @@ const session = require('express-session');
 const connection = require('./database/database');
 
 // Import Controllers
-const categoriesController = require('./app/Domains/categories/Controllers/CategoriesController');
-const articlesController = require('./app/Domains/articles/Controllers/ArticlesController');
-const usersController = require('./app/Domains/Users/Controllers/UsersController');
+const categoriesController = require('./app/domains/categories/controllers/CategoriesController');
+const articlesController = require('./app/domains/articles/controllers/ArticlesController');
+const usersController = require('./app/domains/users/controllers/UsersController');
 
 // Import Models
-const Article = require('./app/Domains/articles/Models/Article');
-const Category = require('./app/Domains/categories/Models/Category');
-const User = require('./app/Domains/users/Models/User');
+const Article = require('./app/domains/articles/models/Article');
+const Category = require('./app/domains/categories/models/Category');
+const User = require('./app/domains/users/models/User');
 
 // Initializing view engine - EJS
 app.set('view engine', 'ejs');
