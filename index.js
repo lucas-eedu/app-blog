@@ -19,6 +19,7 @@ const Article = require('./app/Domains/articles/Models/Article');
 const Category = require('./app/Domains/categories/Models/Category');
 const User = require('./app/Domains/users/Models/User');
 
+app.set("views", path.join(__dirname, "views"));
 // Initializing view engine - EJS
 app.set('view engine', 'ejs');
 
@@ -31,7 +32,7 @@ app.use(session({
 }));
 
 // Initializing static files on public page
-app.use(express.static('public'));
+app.use(express.static(__dirname + 'public'));
 
 // Initializing bodyParser
 app.use(bodyParser.urlencoded({extended: false}));
