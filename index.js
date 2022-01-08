@@ -8,6 +8,8 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 // Import connection with mysql
 const connection = require('./database/database');
+// Import path
+const path = require("path");
 
 // Import Controllers
 const categoriesController = require('./app/Domains/categories/Controllers/CategoriesController');
