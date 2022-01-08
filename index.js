@@ -8,6 +8,8 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 // Import connection with mysql
 const connection = require('./database/database');
+// Import path
+const path = require("path");
 
 // Import Controllers
 const categoriesController = require('./app/Domains/categories/Controllers/CategoriesController');
@@ -19,6 +21,7 @@ const Article = require('./app/Domains/articles/Models/Article');
 const Category = require('./app/Domains/categories/Models/Category');
 const User = require('./app/Domains/users/Models/User');
 
+app.set("views", path.join(__dirname, "views"));
 // Initializing view engine - EJS
 app.set('view engine', 'ejs');
 
@@ -31,7 +34,11 @@ app.use(session({
 }));
 
 // Initializing static files on public page
-app.use(express.static('public'));
+app.use('/css', express.static(__dirname + '/public/css'));
+app.use('/js', express.static(__dirname + '/public/js'));
+app.use('/img', express.static(__dirname + '/public/img'));
+// app.use('/tinymce', express.static(__dirname + '/public/tinymce'));
+app.use('/fontawesome', express.static(__dirname + '/public/fontawesome'));
 
 // Initializing bodyParser
 app.use(bodyParser.urlencoded({extended: false}));
@@ -42,6 +49,7 @@ connection
    .authenticate()
    .then(() => {
       console.log('Conexão feita com sucesso!');
+      runServer();
    })
    .catch((error) => {
       console.error(error);
@@ -207,6 +215,6 @@ app.get('/category/:slug', (req, res) => {
 });
 
 // Building Server
-app.listen(8000, () => {
-   console.log('O servidor está rodando!');
-});
+const runServer = () => {
+   app.listen(8080, () => console.log('O servidor está rodando!'));
+}
