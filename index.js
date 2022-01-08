@@ -12,7 +12,7 @@ const connection = require('./database/database');
 // Import Controllers
 const categoriesController = require('./app/Domains/categories/Controllers/CategoriesController');
 const articlesController = require('./app/Domains/articles/Controllers/ArticlesController');
-const usersController = require('./app/Domains/Users/Controllers/UsersController');
+const usersController = require('./app/Domains/users/Controllers/UsersController');
 
 // Import Models
 const Article = require('./app/Domains/articles/Models/Article');
