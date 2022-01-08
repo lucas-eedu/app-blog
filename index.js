@@ -10,9 +10,9 @@ const session = require('express-session');
 const connection = require('./database/database');
 
 // Import Controllers
-const categoriesController = require('./app/domains/categories/controllers/CategoriesController');
-const articlesController = require('./app/domains/articles/controllers/ArticlesController');
-const usersController = require('./app/domains/users/controllers/UsersController');
+const categoriesController = require('./app/Domains/categories/Controllers/CategoriesController');
+const articlesController = require('./app/Domains/articles/Controllers/ArticlesController');
+const usersController = require('./app/Domains/users/Controllers/UsersController');
 
 // Import Models
 const Article = require('./app/domains/articles/models/Article');
