@@ -42,6 +42,7 @@ connection
    .authenticate()
    .then(() => {
       console.log('Conexão feita com sucesso!');
+      runServer();
    })
    .catch((error) => {
       console.error(error);
@@ -207,6 +208,6 @@ app.get('/category/:slug', (req, res) => {
 });
 
 // Building Server
-app.listen(8000, () => {
-   console.log('O servidor está rodando!');
-});
+const runServer = () => {
+   app.listen(8080, () => console.log('O servidor está rodando!'));
+}
