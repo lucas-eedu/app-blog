@@ -34,7 +34,7 @@ app.use(session({
 }));
 
 // Initializing static files on public page
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 
 // Initializing bodyParser
 app.use(bodyParser.urlencoded({extended: false}));
