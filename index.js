@@ -34,10 +34,7 @@ app.use(session({
 }));
 
 // Initializing static files on public page
-app.use('/css', express.static(__dirname + '/public/css'));
-app.use('/js', express.static(__dirname + '/public/js'));
-app.use('/img', express.static(__dirname + '/public/img'));
-app.use('/fontawesome', express.static(__dirname + '/public/fontawesome'));
+app.use(express.static('public'));
 
 // Initializing bodyParser
 app.use(bodyParser.urlencoded({extended: false}));
